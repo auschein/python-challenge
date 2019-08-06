@@ -1,20 +1,20 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[67]:
+# In[1]:
 
 
 import os
 import csv
 
 
-# In[68]:
+# In[2]:
 
 
-csv_path = os.path.join("..", "Resources", "budget_data.csv")
+csv_path = os.path.join("Resources", "budget_data.csv")
 
 
-# In[69]:
+# In[3]:
 
 
 date = []
@@ -25,7 +25,7 @@ total = 0
 diff = 0
 
 
-# In[70]:
+# In[4]:
 
 
 with open(csv_path, newline = "") as infile:
@@ -40,10 +40,10 @@ with open(csv_path, newline = "") as infile:
         profit_total.append(diff)
         total = int(row[1])
         nmonths += 1
-        netpl = netpl + int(row[1])    
+        netpl = netpl + int(row[1]) 
 
 
-# In[71]:
+# In[5]:
 
 
 nmonths += 1
@@ -53,7 +53,7 @@ profit_total.append(diff)
 total = int(row[1])
 
 
-# In[72]:
+# In[6]:
 
 
 inc = max(profit_total)
@@ -66,7 +66,7 @@ datedec = date[decindex]
 avgchanges =profitsum/len(profit_total)
 
 
-# In[73]:
+# In[7]:
 
 
 print("Financial Analysis:")
@@ -78,18 +78,25 @@ print(f"Greatest Increase In Profits: {dateinc} ${incindex}")
 print(f"Greatest Decrease In Profits: {datedec} ${decindex}")
 
 
-# In[84]:
+# In[13]:
 
 
-outfile = open("outfile.txt", "w")
-outfile.write('{}\n{}\n{}\n{}\n{}\n{}\n{}\n'.format(l1,l2,l3,l4,l5,l6,l7))
+PyBank = open("PyBank.txt", "w")
+
 l1=("Financial Analysis:")
 l2=("------------------")
-l3=(f" Total Months: {nmonths}")
-l4=(f" Total: {netpl}")
-l5=(f" Average Change: ${round(avgchanges,2)}")
-l6=(f"Greatest Increase In Profits: {dateinc} ${incindex}")
-l7=(f"Greatest Decrease In Profits: {datedec} ${decindex}")
+l3=str(f" Total Months: {nmonths}")
+l4=str(f" Total: {netpl}")
+l5=str(f" Average Change: ${round(avgchanges,2)}")
+l6=str(f"Greatest Increase In Profits: {dateinc} ${incindex}")
+l7=str(f"Greatest Decrease In Profits: {datedec} ${decindex}")
+PyBank.write('{}\n{}\n{}\n{}\n{}\n{}\n{}\n'.format(l1,l2,l3,l4,l5,l6,l7))
+
+
+# In[ ]:
+
+
+
 
 
 # In[ ]:
