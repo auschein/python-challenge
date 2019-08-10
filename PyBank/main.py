@@ -1,20 +1,20 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[1]:
+# In[ ]:
 
 
 import os
 import csv
 
 
-# In[2]:
+# In[ ]:
 
 
 csv_path = os.path.join("Resources", "budget_data.csv")
 
 
-# In[3]:
+# In[ ]:
 
 
 date = []
@@ -25,7 +25,7 @@ total = 0
 diff = 0
 
 
-# In[4]:
+# In[ ]:
 
 
 with open(csv_path, newline = "") as infile:
@@ -43,7 +43,7 @@ with open(csv_path, newline = "") as infile:
         netpl = netpl + int(row[1]) 
 
 
-# In[5]:
+# In[ ]:
 
 
 nmonths += 1
@@ -53,7 +53,7 @@ profit_total.append(diff)
 total = int(row[1])
 
 
-# In[6]:
+# In[ ]:
 
 
 inc = max(profit_total)
@@ -66,7 +66,7 @@ datedec = date[decindex]
 avgchanges =profitsum/len(profit_total)
 
 
-# In[7]:
+# In[ ]:
 
 
 print("Financial Analysis:")
@@ -78,9 +78,11 @@ print(f"Greatest Increase In Profits: {dateinc} ${incindex}")
 print(f"Greatest Decrease In Profits: {datedec} ${decindex}")
 
 
-# In[13]:
+# In[ ]:
 
 
+#FYI...For some reason, I have to execute this block twice in order for it to produce a .txt with data in it. 
+    #First execution produces a .txt file that is blank
 PyBank = open("PyBank.txt", "w")
 
 l1=("Financial Analysis:")
@@ -91,12 +93,6 @@ l5=str(f" Average Change: ${round(avgchanges,2)}")
 l6=str(f"Greatest Increase In Profits: {dateinc} ${incindex}")
 l7=str(f"Greatest Decrease In Profits: {datedec} ${decindex}")
 PyBank.write('{}\n{}\n{}\n{}\n{}\n{}\n{}\n'.format(l1,l2,l3,l4,l5,l6,l7))
-
-
-# In[ ]:
-
-
-
 
 
 # In[ ]:

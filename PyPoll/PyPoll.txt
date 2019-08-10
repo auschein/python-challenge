@@ -1,0 +1,10 @@
+Election Results:
+------------------
+Total Votes Counted: 3521001
+----------------
+Khan got: 63% of the vote and (2218231) of the votes counted
+Correy got: 20% of the vote and (704200) of the votes counted
+Li got: 14% of the vote and (492940) of the votes counted
+O'Tooley got: 3% of the vote and (105630) of the votes counted
+----------------
+The Winning Candidate is: Khan

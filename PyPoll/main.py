@@ -1,21 +1,20 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[27]:
+# In[ ]:
 
 
 import os
 import csv
 
 
-# In[28]:
+# In[ ]:
 
 
-csvpath = os.path.join("..", "Resources", "election_data.csv")
-csvpath
+csvpath = os.path.join("Resources", "election_data.csv")
 
 
-# In[29]:
+# In[ ]:
 
 
 tvotes = 0
@@ -24,7 +23,7 @@ pvotes = []
 candidate = []
 
 
-# In[77]:
+# In[ ]:
 
 
 with open (csvpath, newline = "") as infile:
@@ -41,16 +40,16 @@ with open (csvpath, newline = "") as infile:
             nvotes[index] += 1
 
 
-# In[88]:
+# In[ ]:
 
 
 for votes in nvotes:
-    perc = round(votes/tvotes)*100
-    'perc = "%.3f%%" % perc
+    perc = (votes/tvotes)*100
+    perc = round(perc)
     pvotes.append(perc)
 
 
-# In[81]:
+# In[ ]:
 
 
 win = max(nvotes)
@@ -58,7 +57,7 @@ index = nvotes.index(win)
 wincand = candidate[index]
 
 
-# In[87]:
+# In[ ]:
 
 
 print ('Election Results')
@@ -66,9 +65,35 @@ print ('----------------')
 print (f'Total Votes Counted: {str(tvotes)}')
 print ('----------------')
 for x in range(len(candidate)):
-    print (f'{str(candidate[x])} got: {str(pvotes[x])} of the vote and ({str(nvotes[x])}) of the votes counted')
+    print (f'{str(candidate[x])} got: {str(pvotes[x])}% of the vote and ({str(nvotes[x])}) of the votes counted')
 print ('----------------')
 print (f'The Winning Candidate is: {wincand}')
+
+
+# In[ ]:
+
+
+#FYI...For some reason, I have to execute this command twice for it to produce a .txt with data in it. 
+    #First execution produces a .txt file that is blank
+PyPoll = open("PyPoll.txt", "w")
+
+l1=("Election Results:")
+l2=("------------------")
+l3=str(f'Total Votes Counted: {str(tvotes)}')
+l4=str('----------------')
+PyPoll.write('{}\n{}\n{}\n{}\n'.format(l1,l2,l3,l4))
+for x in range(len(candidate)):
+    results = (f'{str(candidate[x])} got: {str(pvotes[x])}% of the vote and ({str(nvotes[x])}) of the votes counted')
+    PyPoll.write('{}\n'.format(results))
+l5=('----------------')
+l6=str(f'The Winning Candidate is: {wincand}')
+PyPoll.write('{}\n{}\n'.format(l5,l6))
+
+
+# In[ ]:
+
+
+
 
 
 # In[ ]:
